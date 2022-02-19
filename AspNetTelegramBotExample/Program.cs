@@ -20,10 +20,9 @@ Console.Title = me.Username ?? "My awesome Bot";
 
 using var cts = new CancellationTokenSource();
 
-ReceiverOptions receiverOptions = new() { AllowedUpdates = { } };
 bot.StartReceiving(Handlers.HandleUpdateAsync,
     Handlers.HandleErrorAsync,
-    receiverOptions,
+    new ReceiverOptions(),
     cts.Token);
 
 Console.WriteLine($"Start listening for @{me.Username}");
